@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -63,7 +63,7 @@
        <property name="title">
         <string>截图选项</string>
        </property>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>200</x>
@@ -86,7 +86,11 @@
             </widget>
            </item>
            <item>
-            <widget class="QSpinBox" name="delaySpinBox"/>
+            <widget class="QSpinBox" name="delaySpinBox">
+             <property name="value">
+              <number>1</number>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>
@@ -95,9 +99,29 @@
            <property name="text">
             <string>是否延时</string>
            </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>10</y>
+          <width>261</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 30, 10);
+font: 75 10pt &quot;Droid Sans&quot;;</string>
+        </property>
+        <property name="text">
+         <string>注意：截图完成后将自动粘贴到系统粘贴板</string>
+        </property>
        </widget>
       </widget>
      </item>
@@ -175,12 +199,6 @@
      </item>
     </layout>
    </widget>
-   <zorder>newPushButton</zorder>
-   <zorder>savePushButton</zorder>
-   <zorder>exitPushButton</zorder>
-   <zorder>groupBox</zorder>
-   <zorder>preview_label</zorder>
-   <zorder>exitPushButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

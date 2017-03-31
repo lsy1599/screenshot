@@ -12,6 +12,11 @@
 #include <QDir>
 #include <QString>
 #include <QStandardPaths>
+#include <QClipboard>
+#include <QContextMenuEvent>
+#include <QAction>
+#include <QMenu>
+#include <QCursor>
 
 
 namespace Ui {
@@ -25,6 +30,9 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+protected:
+    void contextMenuEvent(QContextMenuEvent *event);
 
 private slots:
     void on_newPushButton_clicked();
