@@ -11,6 +11,7 @@
 #include <QFileDialog>
 #include <QDir>
 #include <QString>
+#include <QStandardPaths>
 
 
 namespace Ui {

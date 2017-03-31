@@ -45,24 +45,23 @@ void MainWindow::screenShotSlot()
 
 void MainWindow::on_savePushButton_clicked()
 {
-    QString filename = QFileDialog::getSaveFileName(this,"保存截图",QDesktopServices::storageLocation(QStandardPaths::PicturesLocation));
+    //使用了qt5的新类QStandardPaths,得到本地图片的路径
+    QString filename = QFileDialog::getSaveFileName(this,"保存截图",
+                            QStandardPaths::writableLocation(QStandardPaths::PicturesLocation));
+    //qt4的方法
+    //QString filename = QFileDialog::getSaveFileName(this,"保存截图",
+    //                        QDesktopServices::storageLocation(QStandardPaths::PicturesLocation));
     if(filename.isEmpty())
     {
         QMessageBox::information(this,"保存截图","保存出错");
         return ;
     }
-
-    QFile *file=new QFile();
-    bool ok = file->open(filename);
-    if(ok)
+    if(this->pixmap.isNull())
     {
-
-    }
-    else
-    {
-        delete file;
+        QMessageBox::information(this,"保存截图","你还没截图吧,亲");
         return ;
     }
-    delete file;
-    return ;
+    this->pixmap.save(filename);
+
+
 }
